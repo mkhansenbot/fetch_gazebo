@@ -22,4 +22,6 @@
   <param name="/base_controller/publish_tf" value="$(arg publish_tf)" />
   <include file="$(find fetch_gazebo)/launch/include/$(arg robot).launch.xml" />
 
+  <node unless="$(arg publish_tf)" name="publish_odom_base_link" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 odom base_link 25" />
+
 </launch>
